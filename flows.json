@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "7a9a689b1b991e15",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "c9cff8dccd3e7c63",
         "type": "subflow",
         "name": "Subflow 1",
@@ -113,7 +121,7 @@
         "category": "",
         "in": [
             {
-                "x": 240,
+                "x": 260,
                 "y": 100,
                 "wires": [
                     {
@@ -124,7 +132,7 @@
         ],
         "out": [
             {
-                "x": 660,
+                "x": 720,
                 "y": 100,
                 "wires": [
                     {
@@ -143,6 +151,130 @@
         "type": "graphql-server",
         "name": "http://135.181.35.156:4000/api/explore",
         "endpoint": "http://135.181.35.156:4000/api/explore"
+    },
+    {
+        "id": "1bf8ea68f62a96fd",
+        "type": "ui_group",
+        "name": "reflow",
+        "tab": "cf663179164c69d1",
+        "order": 1,
+        "disp": false,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cf663179164c69d1",
+        "type": "ui_tab",
+        "name": "one",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a1f23e7f9e7ee37e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "a9c7afec098fb039",
+        "type": "ui_tab",
+        "name": "two",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "8ba8672253c19bee",
@@ -201,7 +333,7 @@
         "syntax": "mustache",
         "template": "mutation {createEconomicEvent(\n      event: {\n        action: \"produce\",\n        provider: \"{{provider}}\",\n        receiver: \"{{receiver}}\",\n        resourceQuantity: null,\n      },\n      newInventoriedResource: {\n        name: \"{{payload}}\",\n        note: \"notes\",\n        tags: \"tag\"\n      }\n      ) {\n        economicEvent {\n          id\n          note\n          resourceInventoriedAs {\n            id\n            name\n            onhandQuantity {\n              hasNumericalValue\n              hasUnit {\n                label\n                symbol\n              }\n            }\n            accountingQuantity {\n              hasNumericalValue\n              hasUnit {\n                label\n                symbol\n              }\n            }\n          }\n        }\n      }\n    }",
         "showDebug": true,
-        "x": 440,
+        "x": 480,
         "y": 160,
         "wires": [
             [],
@@ -209,10 +341,10 @@
         ]
     },
     {
-        "id": "1b23c94eb99f920f",
+        "id": "d892aade0e00688f",
         "type": "inject",
         "z": "a5c1f7e89e3b03fd",
-        "name": "",
+        "name": "payload provider receiver",
         "props": [
             {
                 "p": "payload"
@@ -238,10 +370,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "panino01",
+        "payload": "panino03",
         "payloadType": "str",
-        "x": 160,
-        "y": 260,
+        "x": 170,
+        "y": 240,
         "wires": [
             [
                 "56e154a4b3ebc140"
@@ -261,59 +393,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "15d13b69700b3f79",
-        "type": "debug",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.createResourceSpecification.resourceSpecification.name",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1160,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "e7b258043edef789",
-        "type": "debug",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 950,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "adaeba8df8381001",
-        "type": "debug",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.createResourceSpecification.resourceSpecification.id",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1140,
-        "y": 360,
+        "x": 930,
+        "y": 680,
         "wires": []
     },
     {
@@ -324,10 +405,10 @@
         "graphql": "e0d0143ee4f650a7",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "query MyQuery {\n  resourceSpecification(id: \"{{payload}}\") {\n    note\n    name\n    note\n    id\n    resourceClassifiedAs\n  }\n}",
+        "template": "query MyQuery {\n  resourceSpecification(id: \"{{payload}}\") {\n    note\n    name\n    id\n    resourceClassifiedAs\n  }\n}",
         "showDebug": false,
-        "x": 560,
-        "y": 440,
+        "x": 600,
+        "y": 120,
         "wires": [
             [
                 "cc2b490738580147"
@@ -350,10 +431,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "01FN3WSXMS3NX619X4D7MXQ915",
+        "payload": "01FNPMN6Z55W7P088THDXJY78A",
         "payloadType": "str",
-        "x": 210,
-        "y": 440,
+        "x": 190,
+        "y": 120,
         "wires": [
             [
                 "e35842588beca687"
@@ -373,8 +454,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 480,
+        "x": 910,
+        "y": 120,
         "wires": []
     },
     {
@@ -387,22 +468,20 @@
         "syntax": "mustache",
         "template": "mutation {\n  createResourceSpecification(\n    resourceSpecification: {\n      name: \"{{payload}}\"\n      resourceClassifiedAs: \"pane\"\n      note: \"nota pane\"\n    }\n  ) {\n    resourceSpecification {\n      id\n      name\n    }\n  }\n}\n",
         "showDebug": true,
-        "x": 490,
-        "y": 560,
+        "x": 510,
+        "y": 180,
         "wires": [
             [
                 "cc2b490738580147"
             ],
-            [
-                "cc2b490738580147"
-            ]
+            []
         ]
     },
     {
         "id": "bc7ffb3b5356e167",
         "type": "inject",
         "z": "727cabf56f83b992",
-        "name": "",
+        "name": "ResourceSpecification",
         "props": [
             {
                 "p": "payload"
@@ -418,60 +497,13 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "panino27",
+        "payload": "panino59",
         "payloadType": "str",
         "x": 140,
-        "y": 560,
+        "y": 180,
         "wires": [
             [
                 "c5234d58e71c5939"
-            ]
-        ]
-    },
-    {
-        "id": "290c0e2a75b888f7",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": "mutation createResourceSpecification resourceClassifiedAs: \"pane\" panettone",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "mutation {\n  createResourceSpecification(\n    resourceSpecification: {\n      name: \"panettone\"\n      resourceClassifiedAs: \"pane\"\n      note: \"nota panez\"\n    }\n  ) {\n    resourceSpecification {\n      id\n      name\n    }\n  }\n}\n",
-        "showDebug": true,
-        "x": 520,
-        "y": 300,
-        "wires": [
-            [
-                "adaeba8df8381001",
-                "15d13b69700b3f79",
-                "e7b258043edef789"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "940bca3943bc8846",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "props": [
-            {
-                "p": "authorization",
-                "v": "bearer",
-                "vt": "global"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 130,
-        "y": 300,
-        "wires": [
-            [
-                "290c0e2a75b888f7"
             ]
         ]
     },
@@ -492,61 +524,12 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 140,
-        "y": 120,
+        "x": 380,
+        "y": 680,
         "wires": [
             [
                 "56909346ae0b2936"
             ]
-        ]
-    },
-    {
-        "id": "29c0a5eaed0a081e",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "01FHZ173XKBT6MEJ8AHEMEW2WJ",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "authorization",
-                "v": "bearer",
-                "vt": "global"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "01FHZ173XKBT6MEJ8AHEMEW2WJ",
-        "payloadType": "str",
-        "x": 220,
-        "y": 60,
-        "wires": [
-            [
-                "40c072ba9b76a06f"
-            ]
-        ]
-    },
-    {
-        "id": "40c072ba9b76a06f",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": "resourceSpecification",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "text",
-        "syntax": "mustache",
-        "template": "query MyQuery {   resourceSpecification (id: \"{{payload}}\") {     note,     name,     note,     id,     resourceClassifiedAs,   } }",
-        "showDebug": false,
-        "x": 660,
-        "y": 60,
-        "wires": [
-            [
-                "2904ace6e2db2de0"
-            ],
-            []
         ]
     },
     {
@@ -559,27 +542,8 @@
         "syntax": "mustache",
         "template": "query MyQuery {\n  categories {\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n    }\n    totalCount\n  }\n}\n",
         "showDebug": false,
-        "x": 630,
-        "y": 120,
-        "wires": [
-            [
-                "2904ace6e2db2de0"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "26bbd87b588de087",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": " resourceSpecifications",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "text",
-        "syntax": "mustache",
-        "template": "query MyQuery query MyQuery {\n  resourcesClassification {\n    name\n  }\n}",
-        "showDebug": false,
-        "x": 660,
-        "y": 180,
+        "x": 590,
+        "y": 680,
         "wires": [
             [
                 "2904ace6e2db2de0"
@@ -605,19 +569,38 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 180,
-        "y": 180,
+        "x": 140,
+        "y": 60,
         "wires": [
             [
-                "26bbd87b588de087"
+                "7ed308d826d7a710"
             ]
         ]
     },
     {
-        "id": "6cb1513fff472c8a",
+        "id": "7b1ec27c82af6140",
+        "type": "graphql",
+        "z": "727cabf56f83b992",
+        "name": "query Agents",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "text",
+        "syntax": "mustache",
+        "template": "query agents {\n  agents(limit: 20) {\n    canonicalUrl\n    displayUsername\n    id\n    image\n    agentType\n    name\n    note\n\n  }\n}\n \n",
+        "showDebug": false,
+        "x": 590,
+        "y": 780,
+        "wires": [
+            [
+                "bdb14b78eab721c4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b56a5d4324b5c24a",
         "type": "inject",
         "z": "727cabf56f83b992",
-        "name": "resourceClassifiedAs",
+        "name": "agents",
         "props": [
             {
                 "p": "authorization",
@@ -631,71 +614,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 180,
-        "y": 240,
-        "wires": [
-            [
-                "1a0ceb0c59822944"
-            ]
-        ]
-    },
-    {
-        "id": "1a0ceb0c59822944",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": " resourceSpecifications",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "text",
-        "syntax": "mustache",
-        "template": "query MyQuery {\n  resourcesClassification {\n    name\n  }\n}",
-        "showDebug": false,
-        "x": 660,
-        "y": 240,
-        "wires": [
-            [
-                "2904ace6e2db2de0"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "7b1ec27c82af6140",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": "query Agents",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "text",
-        "syntax": "mustache",
-        "template": "query agents{\n  agents(limit: 30) {\n    canonicalUrl\n    displayUsername\n    id\n    image\n  }\n}\n",
-        "showDebug": false,
-        "x": 490,
-        "y": 660,
-        "wires": [
-            [
-                "bdb14b78eab721c4"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "b56a5d4324b5c24a",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "resourceSpecifications",
-        "props": [
-            {
-                "p": "authorization",
-                "v": "bearer",
-                "vt": "global"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 160,
-        "y": 660,
+        "x": 390,
+        "y": 780,
         "wires": [
             [
                 "7b1ec27c82af6140"
@@ -715,8 +635,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 660,
+        "x": 930,
+        "y": 780,
         "wires": []
     },
     {
@@ -729,10 +649,11 @@
         "syntax": "mustache",
         "template": "query economicResources {\n  economicResources {\n    id\n    image\n    name\n    note\n  }\n}",
         "showDebug": false,
-        "x": 460,
-        "y": 780,
+        "x": 580,
+        "y": 380,
         "wires": [
             [
+                "49f91532562d5229",
                 "33cd2bd05dd3e0ad"
             ],
             []
@@ -742,7 +663,7 @@
         "id": "afc235fb9d3b02ce",
         "type": "inject",
         "z": "727cabf56f83b992",
-        "name": "resourceSpecifications",
+        "name": "economicResources",
         "props": [
             {
                 "p": "authorization",
@@ -756,8 +677,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 140,
-        "y": 780,
+        "x": 290,
+        "y": 380,
         "wires": [
             [
                 "46591adb4083608e"
@@ -773,176 +694,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "payload.economicResources",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "d7cf0ddc51b3ded8",
-        "type": "subflow:6dbb08529c2feac4",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "x": 520,
-        "y": 940,
-        "wires": [
-            [
-                "ddf265c0e526efe3"
-            ]
-        ]
-    },
-    {
-        "id": "a0a7d29b21414f61",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "authorization",
-                "v": "bearer",
-                "vt": "global"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "panino26",
-        "payloadType": "str",
-        "x": 200,
-        "y": 940,
-        "wires": [
-            [
-                "d7cf0ddc51b3ded8"
-            ]
-        ]
-    },
-    {
-        "id": "ddf265c0e526efe3",
-        "type": "debug",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "387ce95725c00385",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": "query  resourceSpecification by id",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "query MyQuery {\n  resourceSpecification(id: \"{{payload}}\") {\n    note\n    name\n    note\n    id\n    resourceClassifiedAs\n  }\n}",
-        "showDebug": false,
-        "x": 500,
-        "y": 860,
-        "wires": [
-            [
-                "ddf265c0e526efe3"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "8380e77d01706fcc",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "01FHZ173XKBT6MEJ8AHEMEW2WJ",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "01FN3WSXMS3NX619X4D7MXQ915",
-        "payloadType": "str",
-        "x": 190,
-        "y": 860,
-        "wires": [
-            [
-                "387ce95725c00385"
-            ]
-        ]
-    },
-    {
-        "id": "38636c1ef951ef7d",
-        "type": "subflow:6dbb08529c2feac4",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "x": 500,
-        "y": 1160,
-        "wires": [
-            [
-                "6ca0085b2479a288"
-            ]
-        ]
-    },
-    {
-        "id": "e2ad6118e6f7494c",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "authorization",
-                "v": "bearer",
-                "vt": "global"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "panino29",
-        "payloadType": "str",
-        "x": 180,
-        "y": 1160,
-        "wires": [
-            [
-                "38636c1ef951ef7d"
-            ]
-        ]
-    },
-    {
-        "id": "6ca0085b2479a288",
-        "type": "debug",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 1160,
+        "x": 1000,
+        "y": 400,
         "wires": []
     },
     {
@@ -958,8 +715,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 1300,
+        "x": 910,
+        "y": 520,
         "wires": []
     },
     {
@@ -968,8 +725,8 @@
         "z": "727cabf56f83b992",
         "name": "",
         "env": [],
-        "x": 480,
-        "y": 1300,
+        "x": 600,
+        "y": 520,
         "wires": [
             [
                 "ca65bf2a50ca7a23"
@@ -1006,15 +763,266 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "panino03",
+        "payload": "panino08",
         "payloadType": "str",
-        "x": 230,
-        "y": 1300,
+        "x": 310,
+        "y": 520,
         "wires": [
             [
                 "9578835e9f6dab95"
             ]
         ]
+    },
+    {
+        "id": "79e2650e49931153",
+        "type": "inject",
+        "z": "727cabf56f83b992",
+        "name": "payload provider receiver",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "global"
+            },
+            {
+                "p": "provider",
+                "v": "01FNBRZ027Z3ZRCTT4T9VBP614",
+                "vt": "str"
+            },
+            {
+                "p": "receiver",
+                "v": "01FNBRZ027Z3ZRCTT4T9VBP614",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "panino07",
+        "payloadType": "str",
+        "x": 310,
+        "y": 460,
+        "wires": [
+            [
+                "63136a43b4a8c4c6"
+            ]
+        ]
+    },
+    {
+        "id": "63136a43b4a8c4c6",
+        "type": "graphql",
+        "z": "727cabf56f83b992",
+        "name": "createEconomicEvent",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "mutation {createEconomicEvent(\n      event: {\n        action: \"produce\",\n        provider: \"{{provider}}\",\n        receiver: \"{{receiver}}\",\n        resourceQuantity: null,\n      },\n      newInventoriedResource: {\n        name: \"{{payload}}\",\n        note: \"notes\",\n        tags: \"tag\"\n      }\n      ) {\n        economicEvent {\n          id\n          note\n          resourceInventoriedAs {\n            id\n            name\n            onhandQuantity {\n              hasNumericalValue\n              hasUnit {\n                label\n                symbol\n              }\n            }\n            accountingQuantity {\n              hasNumericalValue\n              hasUnit {\n                label\n                symbol\n              }\n            }\n          }\n        }\n      }\n    }",
+        "showDebug": true,
+        "x": 600,
+        "y": 460,
+        "wires": [
+            [
+                "70ebd13f42a515d9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "70ebd13f42a515d9",
+        "type": "debug",
+        "z": "727cabf56f83b992",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b48934f7c8cbcc0a",
+        "type": "subflow:6dbb08529c2feac4",
+        "z": "727cabf56f83b992",
+        "name": "",
+        "x": 620,
+        "y": 240,
+        "wires": [
+            [
+                "cc2b490738580147"
+            ]
+        ]
+    },
+    {
+        "id": "3b8f0170bbd67053",
+        "type": "inject",
+        "z": "727cabf56f83b992",
+        "name": "mutation: panino58",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "panino58",
+        "payloadType": "str",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "b48934f7c8cbcc0a"
+            ]
+        ]
+    },
+    {
+        "id": "7ed308d826d7a710",
+        "type": "graphql",
+        "z": "727cabf56f83b992",
+        "name": " resourceSpecifications",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "text",
+        "syntax": "mustache",
+        "template": "query MyQuery {\n  resourceSpecifications {\n    name,\n    id\n  }\n}",
+        "showDebug": false,
+        "x": 640,
+        "y": 60,
+        "wires": [
+            [
+                "cc2b490738580147"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c67756d0bdcd1a7e",
+        "type": "debug",
+        "z": "727cabf56f83b992",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.createResourceSpecification.resourceSpecification.id",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "89a65bd88d6262ac",
+        "type": "debug",
+        "z": "727cabf56f83b992",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.createResourceSpecification.resourceSpecification.name",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "49f91532562d5229",
+        "type": "debug",
+        "z": "727cabf56f83b992",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "48514af58ed4f1f7",
+        "type": "graphql",
+        "z": "727cabf56f83b992",
+        "name": "query myAgent",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "text",
+        "syntax": "mustache",
+        "template": "query myAgent {\n  myAgent {\n    agentType\n    canonicalUrl\n    inventoriedEconomicResources {\n      name\n    }\n  }\n}",
+        "showDebug": false,
+        "x": 600,
+        "y": 880,
+        "wires": [
+            [
+                "53227ec302f87a6d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6c352197212cdfcd",
+        "type": "inject",
+        "z": "727cabf56f83b992",
+        "name": "agents",
+        "props": [
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 370,
+        "y": 880,
+        "wires": [
+            [
+                "48514af58ed4f1f7"
+            ]
+        ]
+    },
+    {
+        "id": "53227ec302f87a6d",
+        "type": "debug",
+        "z": "727cabf56f83b992",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 880,
+        "wires": []
     },
     {
         "id": "935b3e0a5cf84e10",
@@ -1086,6 +1094,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 130,
         "y": 40,
         "wires": [
@@ -1158,22 +1167,22 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1170,
-        "y": 80,
+        "y": 100,
         "wires": []
     },
     {
         "id": "bce6e0290e97db78",
         "type": "template",
         "z": "c107fab43a12cc56",
-        "name": "",
+        "name": "Bearer",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "Bearer {{payload.login.token}}",
         "output": "str",
-        "x": 1020,
-        "y": 80,
+        "x": 1010,
+        "y": 100,
         "wires": [
             [
                 "5d24de78469bdbbf",
@@ -1607,5 +1616,300 @@
             [],
             []
         ]
+    },
+    {
+        "id": "f211726934f12e18",
+        "type": "ui_button",
+        "z": "7a9a689b1b991e15",
+        "name": "",
+        "group": "1bf8ea68f62a96fd",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "query Economic Resources",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "db36c514d532545a"
+            ]
+        ]
+    },
+    {
+        "id": "db36c514d532545a",
+        "type": "graphql",
+        "z": "7a9a689b1b991e15",
+        "name": "query economicResources",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "text",
+        "syntax": "plain",
+        "template": "query economicResources {\n  economicResources {\n    id\n    image\n    name\n    note\n    onhandQuantity {\n      hasNumericalValue\n    }\n    accountingQuantity {\n      hasNumericalValue\n      hasUnit {\n        canonicalUrl\n        id\n        label\n        symbol\n      }\n      id\n    }\n  }\n}",
+        "showDebug": false,
+        "x": 420,
+        "y": 380,
+        "wires": [
+            [
+                "775506a6b1c7e552",
+                "7cac6463fcc1333a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b6295a9427dc1afb",
+        "type": "inject",
+        "z": "7a9a689b1b991e15",
+        "name": "resourceSpecifications",
+        "props": [
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b25038c12ad7a001",
+        "type": "debug",
+        "z": "7a9a689b1b991e15",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "223307711643217c",
+        "type": "graphql",
+        "z": "7a9a689b1b991e15",
+        "name": "economicResource",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "query MyQuery {\n  economicResource(id: \"{{payload}}\") {\n    name\n    note\n    onhandQuantity {\n      hasNumericalValue\n    }\n  }\n}\n",
+        "showDebug": false,
+        "x": 470,
+        "y": 560,
+        "wires": [
+            [
+                "4ce122dbbd1de7b5",
+                "72fe0c9438dc610f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "16cb3bbfc07b6872",
+        "type": "inject",
+        "z": "7a9a689b1b991e15",
+        "name": "01FNRPYRXK8MEVMR0SQQSD0QPC",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "01FNRPYRXK8MEVMR0SQQSD0QPC",
+        "payloadType": "str",
+        "x": 190,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7838d4fad724fe1c",
+        "type": "ui_template",
+        "z": "7a9a689b1b991e15",
+        "group": "1bf8ea68f62a96fd",
+        "name": "",
+        "order": 3,
+        "width": "10",
+        "height": "10",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 880,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "775506a6b1c7e552",
+        "type": "template",
+        "z": "7a9a689b1b991e15",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{#payload.economicResources}}\n      {{id}} {{name}} {{note}} {{onhandQuantity.hasNumericalValue}}\n{{/payload.economicResources}}",
+        "output": "str",
+        "x": 660,
+        "y": 400,
+        "wires": [
+            [
+                "b25038c12ad7a001",
+                "7838d4fad724fe1c"
+            ]
+        ]
+    },
+    {
+        "id": "7cac6463fcc1333a",
+        "type": "debug",
+        "z": "7a9a689b1b991e15",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "169c08603ceead08",
+        "type": "debug",
+        "z": "7a9a689b1b991e15",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "db48253c98890113",
+        "type": "ui_text_input",
+        "z": "7a9a689b1b991e15",
+        "name": "",
+        "label": "",
+        "tooltip": "query a resource",
+        "group": "1bf8ea68f62a96fd",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "payload",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 180,
+        "y": 560,
+        "wires": [
+            [
+                "223307711643217c"
+            ]
+        ]
+    },
+    {
+        "id": "4ce122dbbd1de7b5",
+        "type": "template",
+        "z": "7a9a689b1b991e15",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{#payload.economicResource}}\n      {{name}} {{note}} {{onhandQuantity.hasNumericalValue}}\n{{/payload.economicResource}}",
+        "output": "str",
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "8f366b427006fe17",
+                "169c08603ceead08"
+            ]
+        ]
+    },
+    {
+        "id": "8f366b427006fe17",
+        "type": "ui_template",
+        "z": "7a9a689b1b991e15",
+        "group": "1bf8ea68f62a96fd",
+        "name": "",
+        "order": 3,
+        "width": "10",
+        "height": "10",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 900,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "72fe0c9438dc610f",
+        "type": "debug",
+        "z": "7a9a689b1b991e15",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 520,
+        "wires": []
     }
 ]
